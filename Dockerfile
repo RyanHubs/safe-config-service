@@ -23,6 +23,7 @@ RUN set ex \
     && apt-get install -y --no-install-recommends $buildDeps tini \
     && pip3 install -U --no-cache-dir wheel setuptools pip \
     && pip3 install --no-cache-dir --user -r requirements.txt \
+    && pip3 install ./safe_eth_py-4.3.2-py3-none-any.whl \
     && apt-get purge -y --auto-remove $buildDeps \
     && rm -rf /var/lib/apt/lists/* \
     && chmod +x /usr/bin/tini

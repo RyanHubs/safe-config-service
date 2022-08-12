@@ -15,14 +15,6 @@ services:
       - nginx-shared:${DOCKER_NGINX_VOLUME_ROOT}
     depends_on:
       - web
-  db:
-    image: postgres:13-alpine
-    env_file:
-      - .env
-    volumes:
-      - ./data/db:/var/lib/postgresql/data
-    ports:
-      - "${POSTGRES_PORT}:5432"
   web:
     build: .
     tty: true
@@ -30,5 +22,3 @@ services:
       - nginx-shared:${DOCKER_NGINX_VOLUME_ROOT}
     env_file:
       - .env
-    depends_on:
-      - db
